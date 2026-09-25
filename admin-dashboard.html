@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard — tati.</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+
+</head>
+
+
+<body>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="admin-header">
+
+        <div>
+
+            <div class="admin-logo">
+                tati.
+            </div>
+
+            <div class="admin-subtitle">
+                Painel administrativo
+            </div>
+
+        </div>
+
+
+        <button type="button" class="logout-btn" id="logoutBtn">
+            Sair
+        </button>
+
+    </header>
+
+
+    <main class="admin-main">
+
+        <h1 class="page-title">
+            Dashboard
+        </h1>
+
+        <p class="page-description">
+            Gerencie os produtos e informações da sua loja.
+        </p>
+
+
+        <section class="dashboard-grid">
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card-label">
+                    Produtos
+                </div>
+
+                <div class="dashboard-card-value" id="productsCount">
+                    0
+                </div>
+
+            </article>
+
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card-label">
+                    Produtos ativos
+                </div>
+
+                <div class="dashboard-card-value" id="activeProductsCount">
+                    0
+                </div>
+
+            </article>
+
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card-label">
+                    Status
+                </div>
+
+                <div class="dashboard-card-value">
+                    Online
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <section class="products-section">
+
+            <div class="products-header">
+
+                <h2>
+                    Produtos
+                </h2>
+
+
+                <button type="button" class="new-product-btn" id="newProductBtn">
+                    + Novo produto
+                </button>
+
+            </div>
+
+
+            <div id="productsList"></div>
+
+        </section>
+
+        <section class="admin-section occasions-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Ocasiões</h2>
+
+                    <p>
+                        Gerencie as datas comemorativas disponíveis no catálogo.
+                    </p>
+                </div>
+
+                <button type="button" class="btn-primary" id="newOccasionBtn">
+                    + Nova ocasião
+                </button>
+
+            </div>
+
+
+            <div id="occasionsList" class="occasions-list">
+
+                <div class="products-loading">
+                    Carregando ocasiões...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         MODAL NOVO PRODUTO
+    ====================================================== -->
+
+    <div class="modal-overlay" id="productModal" aria-hidden="true">
+
+        <div class="product-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="modalTitle">
+                        Novo produto
+                    </h2>
+
+                    <p>
+                        Cadastre um novo produto na loja.
+                    </p>
+
+                </div>
+
+
+                <button type="button" class="modal-close" id="closeProductModal" aria-label="Fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="productForm">
+
+                <div class="form-grid">
+
+
+                    <!-- NOME -->
+
+                    <div class="form-group form-full">
+
+                        <label for="productName">
+                            Nome do produto
+                        </label>
+
+                        <input type="text" id="productName" placeholder="Ex.: Caneca Melhor Mãe do Mundo"
+                            maxlength="100" required>
+
+                    </div>
+
+
+                    <!-- OCASIÃO -->
+
+                    <div class="form-group">
+
+                        <label for="productOccasion">
+                            Ocasião
+                        </label>
+
+                        <select id="productOccasion" required>
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- TAG -->
+
+                    <div class="form-group">
+
+                        <label for="productTag">
+                            Tag exibida
+                        </label>
+
+                        <input type="text" id="productTag" placeholder="Ex.: Dia das Mães" maxlength="50" required>
+
+                    </div>
+
+
+                    <!-- PREÇO -->
+
+                    <div class="form-group">
+
+                        <label for="productPrice">
+                            Preço
+                        </label>
+
+                        <input type="number" id="productPrice" placeholder="79.90" min="0" step="0.01" required>
+
+                    </div>
+
+
+                    <!-- ORDEM -->
+
+                    <div class="form-group">
+
+                        <label for="productOrder">
+                            Ordem no catálogo
+                        </label>
+
+                        <input type="number" id="productOrder" value="1" min="0" step="1">
+
+                    </div>
+
+
+                    <!-- ÍCONE -->
+
+                    <div class="form-group">
+
+                        <label for="productIcon">
+                            Ícone
+                        </label>
+
+                        <select id="productIcon">
+
+                            <option value="giftbox">
+                                Presente
+                            </option>
+
+                            <option value="flower">
+                                Flor
+                            </option>
+
+                            <option value="mug">
+                                Caneca
+                            </option>
+
+                            <option value="frame">
+                                Porta-retrato
+                            </option>
+
+                            <option value="candle">
+                                Vela
+                            </option>
+
+                            <option value="ornament">
+                                Enfeite
+                            </option>
+
+                            <option value="bookmark">
+                                Marcador
+                            </option>
+
+                            <option value="keychain">
+                                Chaveiro
+                            </option>
+
+                            <option value="card">
+                                Cartão
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DESCRIÇÃO -->
+
+                    <div class="form-group form-full">
+
+                        <label for="productDescription">
+                            Descrição
+                        </label>
+
+                        <textarea id="productDescription" placeholder="Descreva o produto..." maxlength="500" rows="5"
+                            required></textarea>
+
+                        <div class="field-counter" id="descriptionCounter">
+                            0 / 500
+                        </div>
+
+                    </div>
+
+
+                    <!-- IMAGEM -->
+
+                    <div class="form-group form-full">
+
+                        <label>
+                            Imagem do produto
+                        </label>
+
+
+                        <label class="image-upload" for="productImage">
+
+                            <input type="file" id="productImage" accept="image/*">
+
+
+                            <div class="image-upload-content" id="imageUploadContent">
+
+                                <strong>
+                                    Escolher imagem
+                                </strong>
+
+                                <span>
+                                    JPG, PNG ou WebP
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <div class="image-preview" id="imagePreview" hidden>
+
+                            <img id="previewImage" alt="Pré-visualização do produto">
+
+                            <button type="button" id="removeImageBtn" class="remove-image-btn">
+                                Remover imagem
+                            </button>
+
+                        </div>
+
+
+                        <small class="field-help">
+                            A imagem será automaticamente
+                            redimensionada e comprimida antes de
+                            ser salva.
+                        </small>
+
+                    </div>
+
+
+                    <!-- ATIVO -->
+
+                    <div class="form-group form-full">
+
+                        <label class="switch-label">
+
+                            <input type="checkbox" id="productActive" checked>
+
+                            <span class="switch"></span>
+
+                            <span>
+                                Produto ativo
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-message" id="productFormMessage" aria-live="polite"></div>
+
+
+                <div class="modal-actions">
+
+                    <button type="button" class="cancel-btn" id="cancelProductBtn">
+                        Cancelar
+                    </button>
+
+
+                    <button type="submit" class="save-product-btn" id="saveProductBtn">
+                        Salvar produto
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     MODAL DE OCASIÃO
+===================================================== -->
+
+    <div id="occasionModal" aria-hidden="true">
+
+        <div class="occasion-modal-content">
+
+            <div class="occasion-modal-header">
+
+                <h2 id="occasionModalTitle">
+                    Nova ocasião
+                </h2>
+
+                <button type="button" class="occasion-close" id="closeOccasionModal" aria-label="Fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="occasionForm" class="occasion-form">
+
+                <div class="occasion-form-group">
+
+                    <label for="occasionLabel">
+                        Nome da ocasião
+                    </label>
+
+                    <input type="text" id="occasionLabel" placeholder="Ex.: Dia dos Filhos" maxlength="50" required>
+
+                </div>
+
+
+                <div class="occasion-form-group">
+
+                    <label for="occasionId">
+                        Identificador
+                    </label>
+
+                    <input type="text" id="occasionId" placeholder="Ex.: filhos" maxlength="30" required>
+
+                    <small>
+                        Use apenas letras minúsculas, sem espaços ou acentos.
+                    </small>
+
+                </div>
+
+
+                <div class="occasion-form-group">
+
+                    <label for="occasionOrder">
+                        Ordem
+                    </label>
+
+                    <input type="number" id="occasionOrder" min="1" step="1" value="6" required>
+
+                </div>
+
+
+                <label class="occasion-checkbox">
+
+                    <input type="checkbox" id="occasionActive" checked>
+
+                    <span>
+                        Ocasião ativa
+                    </span>
+
+                </label>
+
+
+                <div id="occasionFormMessage" class="occasion-message"></div>
+
+
+                <div class="occasion-form-actions">
+
+                    <button type="button" class="action-btn" id="cancelOccasionBtn">
+                        Cancelar
+                    </button>
+
+
+                    <button type="submit" class="btn-primary" id="saveOccasionBtn">
+                        Salvar ocasião
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script type="module" src="admin-dashboard.js"></script>
+
+</body>
+
+</html>

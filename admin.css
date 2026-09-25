@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #2c1d3d 0%, transparent 40%),
+        #100b16;
+
+    color: #fff;
+}
+
+.admin-login {
+    width: min(420px, calc(100% - 32px));
+    padding: 36px;
+
+    background: rgba(38, 27, 49, 0.95);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+.admin-brand {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-brand h1 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-style: italic;
+    color: #f1dfff;
+}
+
+.admin-brand p {
+    margin-top: 6px;
+    color: #bca9ca;
+    font-size: 13px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #e8dff0;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #51415d;
+    border-radius: 10px;
+
+    background: #18111f;
+    color: #fff;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: #d9b8ff;
+
+    box-shadow:
+        0 0 0 3px rgba(217, 184, 255, 0.12);
+}
+
+.login-btn {
+    width: 100%;
+    height: 50px;
+
+    margin-top: 8px;
+
+    border: 0;
+    border-radius: 12px;
+
+    background: #e1c5ff;
+    color: #24142f;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.login-btn:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.login-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.login-message {
+    min-height: 20px;
+
+    margin-top: 16px;
+
+    text-align: center;
+
+    font-size: 13px;
+    color: #ffb5b5;
+}
+
+.back-link {
+    display: block;
+
+    margin-top: 24px;
+
+    text-align: center;
+
+    color: #cbb3dc;
+
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #fff;
+}

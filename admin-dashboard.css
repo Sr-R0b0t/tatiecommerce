@@ -1,0 +1,1736 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #2c1d3d 0%,
+            transparent 35%
+        ),
+        #100b16;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.admin-header {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    background: rgba(16, 11, 22, 0.85);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.admin-logo {
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    font-style: italic;
+
+    color: #f1dfff;
+}
+
+
+.admin-subtitle {
+    margin-top: 3px;
+
+    color: #a999b5;
+
+    font-size: 12px;
+}
+
+
+.logout-btn {
+    border: 1px solid #5a4965;
+
+    background: transparent;
+
+    color: #e9dff0;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.logout-btn:hover {
+    background: #e1c5ff;
+
+    color: #24142f;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.admin-main {
+    width: min(1200px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 42px 0;
+}
+
+
+.page-title {
+    font-family: Georgia, serif;
+
+    font-size: 36px;
+
+    margin-bottom: 8px;
+}
+
+
+.page-description {
+    color: #bca9ca;
+
+    font-size: 15px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 40px;
+}
+
+
+.dashboard-card {
+    padding: 24px;
+
+    background: #261b31;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+.dashboard-card-label {
+    color: #bca9ca;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+
+.dashboard-card-value {
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    color: #f1dfff;
+}
+
+
+/* =========================================================
+   PRODUTOS
+========================================================= */
+
+.products-section {
+    padding: 28px;
+
+    background: #1b1322;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+}
+
+
+.products-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 24px;
+}
+
+
+.products-header h2 {
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+}
+
+
+.new-product-btn {
+    border: 0;
+
+    border-radius: 10px;
+
+    padding: 11px 18px;
+
+    background: #e1c5ff;
+
+    color: #24142f;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.new-product-btn:hover {
+    filter: brightness(1.05);
+}
+
+
+/* =========================================================
+   PRODUTO DE EXEMPLO
+========================================================= */
+
+.product-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.product-info h3 {
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+
+.product-info p {
+    color: #aa9ab4;
+
+    font-size: 13px;
+}
+
+
+.product-price {
+    margin-top: 6px;
+
+    color: #e1c5ff;
+
+    font-weight: 700;
+}
+
+
+.product-actions {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.action-btn {
+    border: 1px solid #594861;
+
+    background: transparent;
+
+    color: #e9dff0;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+.action-btn:hover {
+    background: #33253d;
+}
+
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .admin-header {
+        padding: 0 20px;
+    }
+
+
+    .admin-main {
+        width: min(
+            100% - 28px,
+            600px
+        );
+
+        padding-top: 30px;
+    }
+
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .products-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .product-row {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .product-actions {
+        width: 100%;
+    }
+
+
+    .action-btn {
+        flex: 1;
+    }
+
+}
+
+
+/* =========================================================
+   MODAL DE PRODUTO
+========================================================= */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(5, 3, 8, 0.78);
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+
+.modal-overlay.open {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+.product-modal {
+    width: min(760px, 100%);
+
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+
+    background: #21172a;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.55);
+
+    transform: translateY(15px) scale(0.98);
+
+    transition: transform 0.2s ease;
+}
+
+
+.modal-overlay.open .product-modal {
+    transform: translateY(0) scale(1);
+}
+
+
+.modal-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 26px 28px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.modal-header h2 {
+    font-family: Georgia, serif;
+
+    font-size: 26px;
+
+    color: #f1dfff;
+}
+
+
+.modal-header p {
+    margin-top: 5px;
+
+    color: #a999b5;
+
+    font-size: 13px;
+}
+
+
+.modal-close {
+    width: 38px;
+
+    height: 38px;
+
+    border: 1px solid #594861;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+.modal-close:hover {
+    background: #33253d;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+#productForm {
+    padding: 28px;
+}
+
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.form-full {
+    grid-column: 1 / -1;
+}
+
+
+.form-group label:not(.image-upload):not(.switch-label) {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #e8dff0;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid #51415d;
+
+    border-radius: 10px;
+
+    background: #16101c;
+
+    color: #fff;
+
+    outline: none;
+
+    font: inherit;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    height: 46px;
+
+    padding: 0 13px;
+}
+
+
+.form-group textarea {
+    min-height: 120px;
+
+    padding: 12px;
+
+    resize: vertical;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #d9b8ff;
+
+    box-shadow:
+        0 0 0 3px rgba(217, 184, 255, 0.1);
+}
+
+
+.field-counter {
+    margin-top: 5px;
+
+    text-align: right;
+
+    color: #85758e;
+
+    font-size: 11px;
+}
+
+
+.field-help {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #897991;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   UPLOAD
+========================================================= */
+
+.image-upload {
+    min-height: 130px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    border: 1px dashed #665473;
+
+    border-radius: 14px;
+
+    background: #17101d;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.image-upload:hover {
+    border-color: #d9b8ff;
+
+    background: #1d1524;
+}
+
+
+.image-upload input {
+    display: none;
+}
+
+
+.image-upload-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 6px;
+
+    text-align: center;
+}
+
+
+.image-upload-content strong {
+    color: #eadcf5;
+
+    font-size: 14px;
+}
+
+
+.image-upload-content span {
+    color: #897991;
+
+    font-size: 12px;
+}
+
+
+.image-preview {
+    margin-top: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.image-preview img {
+    width: 100px;
+
+    height: 100px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    border: 1px solid #594861;
+}
+
+
+.remove-image-btn {
+    border: 1px solid #714b5a;
+
+    background: transparent;
+
+    color: #f0b6c3;
+
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   SWITCH
+========================================================= */
+
+.switch-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    color: #e8dff0;
+
+    font-size: 13px;
+}
+
+
+.switch-label input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.switch {
+    width: 42px;
+
+    height: 24px;
+
+    display: inline-block;
+
+    position: relative;
+
+    border-radius: 999px;
+
+    background: #4a3b52;
+
+    transition: background 0.2s ease;
+}
+
+
+.switch::after {
+    content: "";
+
+    position: absolute;
+
+    top: 3px;
+
+    left: 3px;
+
+    width: 18px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    transition: transform 0.2s ease;
+}
+
+
+.switch-label input:checked + .switch {
+    background: #b889df;
+}
+
+
+.switch-label input:checked + .switch::after {
+    transform: translateX(18px);
+}
+
+
+/* =========================================================
+   MENSAGEM
+========================================================= */
+
+.form-message {
+    min-height: 20px;
+
+    margin-top: 18px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   AÇÕES
+========================================================= */
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.cancel-btn,
+.save-product-btn {
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    font-size: 14px;
+}
+
+
+.cancel-btn {
+    border: 1px solid #594861;
+
+    background: transparent;
+
+    color: #e9dff0;
+}
+
+
+.save-product-btn {
+    border: 0;
+
+    background: #e1c5ff;
+
+    color: #24142f;
+}
+
+
+.save-product-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   PRODUTOS NO PAINEL
+========================================================= */
+
+.admin-product-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.admin-product-image {
+    width: 76px;
+    height: 76px;
+
+    flex: 0 0 76px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #261b31;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.admin-product-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+.admin-product-icon {
+    width: 42px;
+    height: 42px;
+
+    color: #d9b8ff;
+}
+
+
+.admin-product-info {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.admin-product-info h3 {
+    margin-bottom: 5px;
+
+    font-size: 16px;
+
+    color: #fff;
+}
+
+
+.admin-product-meta {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    color: #a999b5;
+
+    font-size: 13px;
+}
+
+
+.admin-product-price {
+    margin-top: 7px;
+
+    color: #e1c5ff;
+
+    font-weight: 700;
+}
+
+
+.product-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 3px 8px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+}
+
+
+.product-status.active {
+    color: #b9f5c8;
+
+    background: rgba(90, 190, 120, 0.12);
+
+    border: 1px solid rgba(90, 190, 120, 0.2);
+}
+
+
+.product-status.inactive {
+    color: #ffb5b5;
+
+    background: rgba(220, 90, 90, 0.1);
+
+    border: 1px solid rgba(220, 90, 90, 0.2);
+}
+
+
+.admin-product-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+
+.admin-product-actions .action-btn {
+    min-height: 36px;
+
+    padding: 0 12px;
+}
+
+
+.action-btn.delete-btn {
+    color: #ffb5b5;
+
+    border-color: #714b5a;
+}
+
+
+.action-btn.delete-btn:hover {
+    background: rgba(120, 40, 55, 0.2);
+}
+
+
+/* =========================================================
+   ESTADO VAZIO
+========================================================= */
+
+.empty-products {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    color: #a999b5;
+}
+
+
+.empty-products strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #e9dff0;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.products-loading {
+    padding: 30px;
+
+    text-align: center;
+
+    color: #a999b5;
+}
+
+
+/* =========================================================
+   OCASIÕES
+========================================================= */
+
+.occasions-section {
+    margin-top: 28px;
+}
+
+
+.occasions-list {
+    margin-top: 20px;
+}
+
+
+.occasion-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.occasion-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.occasion-info h3 {
+    margin: 0 0 6px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+
+.occasion-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #a999b5;
+
+    font-size: 13px;
+}
+
+
+.occasion-order {
+    color: #8f7da0;
+}
+
+
+.occasion-actions {
+    display: flex;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+
+.occasion-actions .action-btn {
+    min-height: 36px;
+
+    padding: 0 12px;
+}
+
+
+.occasion-actions .delete-btn {
+    color: #ffb5b5;
+
+    border-color: #714b5a;
+}
+
+
+.occasion-actions .delete-btn:hover {
+    background: rgba(120, 40, 55, 0.2);
+}
+
+
+/* =========================================================
+   MODAL DE OCASIÃO
+========================================================= */
+
+#occasionModal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.68);
+}
+
+
+#occasionModal.open {
+    display: flex;
+}
+
+
+.occasion-modal-content {
+    width: min(100%, 500px);
+
+    padding: 28px;
+
+    border-radius: 20px;
+
+    background: #1c1424;
+
+    border: 1px solid rgba(226, 207, 251, 0.18);
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+
+.occasion-modal-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 24px;
+}
+
+
+.occasion-modal-header h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 24px;
+}
+
+
+.occasion-close {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+
+.occasion-close:hover {
+    background: rgba(255,255,255,.06);
+}
+
+
+.occasion-form {
+    display: grid;
+
+    gap: 18px;
+}
+
+
+.occasion-form-group {
+    display: grid;
+
+    gap: 7px;
+}
+
+
+.occasion-form-group label {
+    color: #d8cbe3;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.occasion-form-group input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 14px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 10px;
+
+    background: #120c18;
+
+    color: #ffffff;
+
+    outline: none;
+
+    font: inherit;
+}
+
+
+.occasion-form-group input:focus {
+    border-color: #c7a4f7;
+
+    box-shadow:
+        0 0 0 3px rgba(199,164,247,.1);
+}
+
+
+.occasion-checkbox {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #d8cbe3;
+
+    font-size: 14px;
+}
+
+
+.occasion-checkbox input {
+    width: 18px;
+    height: 18px;
+}
+
+
+.occasion-form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 8px;
+}
+
+
+.occasion-message {
+    min-height: 20px;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TOAST / NOTIFICAÇÕES
+========================================================= */
+
+.toast-container {
+    position: fixed;
+
+    top: 24px;
+    right: 24px;
+
+    z-index: 9999;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    width: min(380px, calc(100vw - 32px));
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   Toast
+--------------------------------------------------------- */
+
+.toast {
+    display: grid;
+
+    grid-template-columns: 38px 1fr 24px;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    border-radius: 14px;
+
+    background: #1c1424;
+
+    border: 1px solid rgba(226, 207, 251, 0.18);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.38);
+
+    color: #ffffff;
+
+    pointer-events: auto;
+
+    animation:
+        toastEntrada 0.28s ease forwards;
+}
+
+
+/* ---------------------------------------------------------
+   Ícone
+--------------------------------------------------------- */
+
+.toast-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+
+.toast-success .toast-icon {
+    background: rgba(52, 211, 153, 0.14);
+
+    color: #6ee7b7;
+}
+
+
+.toast-error .toast-icon {
+    background: rgba(248, 113, 113, 0.14);
+
+    color: #fca5a5;
+}
+
+
+.toast-warning .toast-icon {
+    background: rgba(251, 191, 36, 0.14);
+
+    color: #fcd34d;
+}
+
+
+.toast-info .toast-icon {
+    background: rgba(147, 197, 253, 0.14);
+
+    color: #93c5fd;
+}
+
+
+/* ---------------------------------------------------------
+   Conteúdo
+--------------------------------------------------------- */
+
+.toast-content {
+    min-width: 0;
+}
+
+
+.toast-title {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+.toast-message {
+    margin-top: 4px;
+
+    color: #bbaec8;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* ---------------------------------------------------------
+   Botão fechar
+--------------------------------------------------------- */
+
+.toast-close {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #a99bb5;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    border-radius: 6px;
+}
+
+
+.toast-close:hover {
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #ffffff;
+}
+
+
+/* ---------------------------------------------------------
+   Animações
+--------------------------------------------------------- */
+
+@keyframes toastEntrada {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(30px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+
+}
+
+
+.toast.saindo {
+
+    animation:
+        toastSaida 0.25s ease forwards;
+
+}
+
+
+@keyframes toastSaida {
+
+    from {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+
+    to {
+        opacity: 0;
+
+        transform:
+            translateX(30px)
+            scale(0.96);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Mobile
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .toast-container {
+        top: 14px;
+
+        right: 14px;
+        left: 14px;
+
+        width: auto;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .occasion-row {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+
+    .occasion-actions {
+        width: 100%;
+    }
+
+
+    .occasion-actions .action-btn {
+        flex: 1;
+    }
+
+
+    .occasion-modal-content {
+        padding: 22px;
+    }
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .admin-product-row {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+
+    .admin-product-info {
+        min-width: calc(100% - 94px);
+    }
+
+
+    .admin-product-actions {
+        width: 100%;
+
+        padding-left: 94px;
+    }
+
+
+    .admin-product-actions .action-btn {
+        flex: 1;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .admin-product-image {
+        width: 64px;
+        height: 64px;
+
+        flex-basis: 64px;
+    }
+
+
+    .admin-product-info {
+        min-width: calc(100% - 82px);
+    }
+
+
+    .admin-product-actions {
+        padding-left: 82px;
+    }
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVO DO MODAL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .modal-overlay {
+        padding: 10px;
+    }
+
+
+    .product-modal {
+        max-height: calc(100vh - 20px);
+
+        border-radius: 16px;
+    }
+
+
+    .modal-header {
+        padding: 20px;
+    }
+
+
+    #productForm {
+        padding: 20px;
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .form-full {
+        grid-column: auto;
+    }
+
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+
+    .cancel-btn,
+    .save-product-btn {
+        width: 100%;
+    }
+
+}
+
+
+
+@media (max-width: 480px) {
+
+    .admin-header {
+        min-height: 68px;
+    }
+
+
+    .admin-logo {
+        font-size: 25px;
+    }
+
+
+    .admin-subtitle {
+        display: none;
+    }
+
+
+    .logout-btn {
+        padding: 8px 12px;
+
+        font-size: 13px;
+    }
+
+
+    .page-title {
+        font-size: 30px;
+    }
+
+
+    .products-section {
+        padding: 20px 16px;
+    }
+
+}
